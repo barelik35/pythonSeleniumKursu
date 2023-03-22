@@ -26,7 +26,7 @@ from time import sleep
 
 class Test_Sauce:
 
-    def gorev_1(self):
+    def kullanici_adi_kontrol(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -41,10 +41,11 @@ class Test_Sauce:
         giris.click()
         hatalimesaj=driver.find_element(By.CLASS_NAME, "error-message-container")
         mesaj="Epic sadface: Username is required"
-        print(f"{mesaj}")
+	print("\n************Kul-Adı ve Şifre Boş Geçilemez Uyarı Kontrol**************") 
+        print(f"Test Sonucu: {mesaj}")
         sleep(10)
 
-    def gorev_2(self):
+    def sifre_kontrol(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -59,10 +60,11 @@ class Test_Sauce:
         giris.click()
         hatalimesaj=driver.find_element(By.CLASS_NAME, "error-message-container")
         mesaj="Epic sadface: Password is required"
-        print(f"{mesaj}")
+	print("\n************Şifre Boş Geçilemez Uyarı Kontrol****************")
+        print(f"Test Sonucu: {mesaj}")
         sleep(10)
 
-    def gorev_3(self):
+    def kullanici_kilitli(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -77,10 +79,11 @@ class Test_Sauce:
         giris.click()
         hatalimesaj=driver.find_element(By.CLASS_NAME,"error-message-container")
         mesaj="Epic sadface: Sorry, this user has been locked out."
-        print(f"{mesaj}")
+	print("\n************Kullanıcı Kilitlendi Mesajı****************")
+        print(f"Test Sonucu: {mesaj}")
         sleep(10)
 
-    def gorev_4(self):
+    def ikon_kontrol(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -97,9 +100,10 @@ class Test_Sauce:
         hatabutonu=driver.find_element(By.CLASS_NAME, "error-button")
         sleep(5)
         hatabutonu.click()
+	print("\n************ikon gösterilir ve kapatılır****************")
         sleep(10)
 
-    def gorev_5(self):
+    def inventory_html(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -111,14 +115,13 @@ class Test_Sauce:
         kullaniciAdi.send_keys("standard_user")
         sifre.send_keys("secret_sauce")
         sleep(5)
+        giris = driver.find_element(By.ID,"login-button")
         giris.click()
         sleep(5)
-        current_URL="https://www.saucedemo.com/inventory.html"
-        sleep(10)
-        print(f"Current URL : {current_URL}")
+        print("\n************Sayfaya yönlendirme****************")
+        print("İnventory sayfasına ulaştınız")
 
-
-    def gorev_6(self):
+    def urun_sayma(self):
         driver=webdriver.Chrome()
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -139,9 +142,9 @@ class Test_Sauce:
 
 test=Test_Sauce()
 
-test.gorev_1()
-test.gorev_2()
-test.gorev_3()
-test.gorev_4()
-test.gorev_5()
-test.gorev_6()
+test.kullanici_adi_kontrol()
+test.sifre_kontrol()
+test.kullanici_kilitli()
+test.ikon_kontrol()
+test.inventory_html()
+test.urun_sayma()
