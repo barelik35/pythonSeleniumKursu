@@ -45,7 +45,7 @@ class Test_Sauce():
 
     
     # Başarısız giriş
-    @pytest.mark.parametrize("username,password",[("1","1"),("hüseyin","öztürk"),("meraba","q123801")])
+    @pytest.mark.parametrize("username,password",[("1","1"),("baris","celik"),("baris","asd5qwe46")])
     def test_invalid_login(self,username,password):
         self.wait_for_element_visible((By.ID,"user-name"))
         usernameInput = self.driver.find_element(By.ID,"user-name")
@@ -87,7 +87,7 @@ class Test_Sauce():
         assert errorMessage.text == 'Epic sadface: Username is required'      
 
     # Şifre boş giriş
-    @pytest.mark.parametrize("username,password",[("hüseyyni","")])
+    @pytest.mark.parametrize("username,password",[("bariscelik","")])
     def test_empty_password(self,username,password):
         self.wait_for_element_visible((By.ID,"user-name"))
         usernameInput = self.driver.find_element(By.ID,"user-name")
@@ -129,7 +129,7 @@ class Test_Sauce():
         assert errorMessage.text == 'Epic sadface: Sorry, this user has been locked out.'
         
     # İcon testi
-    @pytest.mark.parametrize("username,password",[("ali","öztürk")])
+    @pytest.mark.parametrize("username,password",[("baris","celik")])
     def test_x_icon(self,username,password):
         self.wait_for_element_visible((By.ID,"user-name"))
         usernameInput = self.driver.find_element(By.ID,"user-name")
